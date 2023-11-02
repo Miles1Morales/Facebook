@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Votre Application</title>
+</head>
+<body>
+  <div id="header">
+    <h1>Votre Application</h1>
+    <% if current_user %>
+      <p>Bienvenue, <%= current_user.email %></p>
+      <%= link_to 'Se déconnecter', logout_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Connexion', login_path %> |
+      <%= link_to 'Inscription', signup_path %>
+    <% end %>
+  </div>
+  <div id="content">
+    <%= yield %>
+  </div>
+</body>
+</html>
+

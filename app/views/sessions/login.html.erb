@@ -1,0 +1,33 @@
+<!-- app/views/sessions/login.html.erb -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connexion</title>
+</head>
+<body>
+
+<h1>Connexion</h1>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with model: @user, url: login_path do |form| %>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Se connecter' %>
+  </div>
+<% end %>
+
+</body>
+</html>
